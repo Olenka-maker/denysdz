@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Coffee — Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">Cyber Coffee</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="booking.html">Booking</a>
+    </nav>
+</header>
+
+<main class="booking-main">
+
+    <form id="bookingForm">
+
+        <h1>Booking Гайки</h1>
+
+        <p>
+            Зарезервуйте ідеальний час
+            у нашій кіберкав'ярні!
+        </p>
+
+        <label>Ваш номер ID</label>
+        <input type="text" required>
+
+        <div class="dates">
+
+            <div>
+                <label>Дата бронювання</label>
+                <input type="date" required>
+            </div>
+
+            <div>
+                <label>Бажаний час</label>
+                <input type="time" required>
+            </div>
+
+        </div>
+
+        <label>Кількість роботів</label>
+
+        <div class="quantity">
+
+            <button type="button" onclick="change(-1)">−</button>
+
+            <input id="count" type="number"
+                   value="2" min="1" max="20">
+
+            <button type="button" onclick="change(1)">+</button>
+
+        </div>
+
+        <label class="check">
+            <input type="checkbox" required>
+            Я згоден відбиватися від кібер роботів
+        </label>
+
+        <button class="submit" type="submit">
+            ✓ Підтвердити бронювання
+        </button>
+
+    </form>
+
+</main>
+
+<footer>
+    © 2026 Cyber Coffee.
+</footer>
+
+<script>
+
+function change(number) {
+
+    let count = document.getElementById("count");
+
+    let value = Number(count.value) + number;
+
+    if (value >= 1 && value <= 20) {
+        count.value = value;
+    }
+
+}
+
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert("Ваше бронювання прийнято!");
+
+});
+
+</script>
+
+</body>
+</html>
